@@ -597,6 +597,7 @@
     </footer>
     
         <script>
+<script>
 function startCountdown(id, targetDate) {
     const element = document.getElementById(id);
     const end = new Date(targetDate);
@@ -618,20 +619,23 @@ function startCountdown(id, targetDate) {
         element.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s remaining`;
     }
 
-    update(); // initial call
-    setInterval(update, 1000); // update every second
+    update();
+    setInterval(update, 1000);
 }
 
-// Set your actual exam dates here (YYYY-MM-DD)
-startCountdown("jee12-2026", "2026-01-01");
-startCountdown("jee11-2027", "2027-07-01");
-startCountdown("neet12-2026", "2026-03-01");
-startCountdown("neet11-2026", "2026-12-31");
+// Set exact target dates
+startCountdown("jee12-2026", "2026-01-21");
+startCountdown("jee11-2027", "2027-01-20");
+startCountdown("neet12-2026", "2026-05-31");
+startCountdown("neet11-2027", "2027-05-04");
+</script>
+
 </script>
 
     
 </body>
 
 </html>
+
 
 
