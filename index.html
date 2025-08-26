@@ -597,22 +597,41 @@
     </footer>
     
         <script>
-function updateCountdown(id, targetDate) {
-    const now = new Date();
+function startCountdown(id, targetDate) {
+    const element = document.getElementById(id);
     const end = new Date(targetDate);
-    const diffTime = end - now;
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    document.getElementById(id).innerText = diffDays > 0 ? `${diffDays} days remaining` : "Exam passed";
+
+    function update() {
+        const now = new Date();
+        const diffTime = end - now;
+
+        if (diffTime <= 0) {
+            element.innerText = "Exam passed";
+            return;
+        }
+
+        const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diffTime % (1000 * 60)) / 1000);
+
+        element.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s remaining`;
+    }
+
+    update(); // initial call
+    setInterval(update, 1000); // update every second
 }
 
-// Set your exam dates (yyyy, mm-1, dd)
-updateCountdown("jee12-2026", "2025-12-22"); // 148 days from today
-updateCountdown("jee11-2027", "2027-01-01"); // Example
-updateCountdown("neet12-2026", "2025-11-30"); // 250 days
-updateCountdown("neet11-2026", "2026-06-30"); // 614 days
+// Set your actual exam dates here (YYYY-MM-DD)
+startCountdown("jee12-2026", "2026-01-01");
+startCountdown("jee11-2027", "2027-07-01");
+startCountdown("neet12-2026", "2026-03-01");
+startCountdown("neet11-2026", "2026-12-31");
 </script>
+
     
 </body>
 
 </html>
+
 
