@@ -340,6 +340,28 @@
 
     <main>
         <div class="container">
+            <section id="countdown" class="section">
+    <h2 class="section-title">⏳ Exam Countdown</h2>
+    <div class="resource-grid">
+        <div class="resource-card">
+            <h3>Class 12th JEE Mains 2026</h3>
+            <p id="jee12-2026"></p>
+        </div>
+        <div class="resource-card">
+            <h3>Class 11th JEE Mains 2027</h3>
+            <p id="jee11-2027"></p>
+        </div>
+        <div class="resource-card">
+            <h3>Class 12th NEET 2026</h3>
+            <p id="neet12-2026"></p>
+        </div>
+        <div class="resource-card">
+            <h3>Class 11th NEET 2026</h3>
+            <p id="neet11-2026"></p>
+        </div>
+    </div>
+</section>
+
             <!-- Books Section -->
             <section id="books" class="section">
                 <h2 class="section-title">📚 Books</h2>
@@ -573,5 +595,24 @@
             </div>
         </div>
     </footer>
+    <script>
+        <script>
+function updateCountdown(id, targetDate) {
+    const now = new Date();
+    const end = new Date(targetDate);
+    const diffTime = end - now;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    document.getElementById(id).innerText = diffDays > 0 ? `${diffDays} days remaining` : "Exam passed";
+}
+
+// Set your exam dates (yyyy, mm-1, dd)
+updateCountdown("jee12-2026", "2025-12-22"); // 148 days from today
+updateCountdown("jee11-2027", "2027-01-01"); // Example
+updateCountdown("neet12-2026", "2025-11-30"); // 250 days
+updateCountdown("neet11-2026", "2026-06-30"); // 614 days
+</script>
+
+    </script>
 </body>
+
 </html>
