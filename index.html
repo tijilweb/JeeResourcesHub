@@ -340,28 +340,6 @@
 
     <main>
         <div class="container">
-            <section id="countdown" class="section">
-    <h2 class="section-title">⏳ Exam Countdown</h2>
-    <div class="resource-grid">
-        <div class="resource-card">
-            <h3>Class 12th JEE Mains 2026</h3>
-            <p id="jee12-2026"></p>
-        </div>
-        <div class="resource-card">
-            <h3>Class 11th JEE Mains 2027</h3>
-            <p id="jee11-2027"></p>
-        </div>
-        <div class="resource-card">
-            <h3>Class 12th NEET 2026</h3>
-            <p id="neet12-2026"></p>
-        </div>
-        <div class="resource-card">
-            <h3>Class 11th NEET 2026</h3>
-            <p id="neet11-2026"></p>
-        </div>
-    </div>
-</section>
-
             <!-- Books Section -->
             <section id="books" class="section">
                 <h2 class="section-title">📚 Books</h2>
@@ -595,47 +573,12 @@
             </div>
         </div>
     </footer>
-    
-        <script>
-function startCountdown(id, daysRemaining) {
-    const element = document.getElementById(id);
-    const now = new Date();
-
-    // Target date = today + exact daysRemaining
-    const end = new Date(now.getTime() + daysRemaining * 24 * 60 * 60 * 1000);
-
-    function update() {
-        const now = new Date();
-        let diffTime = end - now;
-
-        if (diffTime <= 0) {
-            element.innerText = "Exam passed";
-            return;
-        }
-
-        const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diffTime % (1000 * 60)) / 1000);
-
-        element.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s remaining`;
-    }
-
-    update();
-    setInterval(update, 1000);
-}
-
-// Ab exact days ke hisaab se
-startCountdown("jee12-2026", 148);
-startCountdown("jee11-2027", 511);
-startCountdown("neet12-2026", 250);
-startCountdown("neet11-2027", 614);
-</script>
 
     
 </body>
 
 </html>
+
 
 
 
