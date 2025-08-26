@@ -597,13 +597,16 @@
     </footer>
     
         <script>
-function startCountdown(id, targetDate) {
+function startCountdown(id, daysRemaining) {
     const element = document.getElementById(id);
-    const end = new Date(targetDate);
+    const now = new Date();
+
+    // Target date = today + exact daysRemaining
+    const end = new Date(now.getTime() + daysRemaining * 24 * 60 * 60 * 1000);
 
     function update() {
         const now = new Date();
-        const diffTime = end - now;
+        let diffTime = end - now;
 
         if (diffTime <= 0) {
             element.innerText = "Exam passed";
@@ -622,17 +625,18 @@ function startCountdown(id, targetDate) {
     setInterval(update, 1000);
 }
 
-// Set exact target dates
-startCountdown("jee12-2026", "2026-01-21");
-startCountdown("jee11-2027", "2027-01-20");
-startCountdown("neet12-2026", "2026-05-31");
-startCountdown("neet11-2027", "2027-05-04");
+// Ab exact days ke hisaab se
+startCountdown("jee12-2026", 148);
+startCountdown("jee11-2027", 511);
+startCountdown("neet12-2026", 250);
+startCountdown("neet11-2027", 614);
 </script>
 
     
 </body>
 
 </html>
+
 
 
 
